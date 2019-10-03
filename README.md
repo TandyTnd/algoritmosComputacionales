@@ -1,4 +1,1 @@
 # algoritmosComputacionales
-VENEGAS
-
-TESTING
