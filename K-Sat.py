@@ -1,5 +1,9 @@
+import math
+
 keyNum = " 0"
 index = []
+values2 = []
+
 
 file = open("texto.txt", "r")
 def nombres():
@@ -12,6 +16,7 @@ def leerTexto():
     for line in file:
         if keyNum in line:
             index.append(line.splitlines())
+
         else:
             values.append(line.splitlines())
 
@@ -32,7 +37,6 @@ def leerTexto():
     var = values[0]
 
     ##print(var)
-    values2 =[]
     for i in range (0, len(str(var))):
         ##print(str(var)[i])
         p = str(var)[i]
@@ -41,6 +45,7 @@ def leerTexto():
             values2.append(False)
         elif (p == "1"):
             values2.append(True)
+    print(index)
     print(values2)
 
     return values
@@ -48,11 +53,41 @@ def leerTexto():
 
 
 
+def comparaList():
+    for i in range (0, len(index)):
+        arr = (str(index[i][0]).split())
+        print(arr)
 
+        e1 = int(arr[0])
+        e2 = int(arr[1])
+        e3 = int(arr[2])
 
+        if ((e1) <0 ):
+            a1 = not values2[int(math.fabs(e1))-1]
+        else:
+            a1 = values2[int(math.fabs(e1))-1]
 
+        if ((e2) <0 ):
+            a2= not values2[int(math.fabs(e2))-1]
+        else:
+            a2 = values2[int(math.fabs(e2))-1]
+
+        if ((e3) <0 ):
+            a3 = not values2[int(math.fabs(e3))-1]
+        else:
+            a3 = values2[int(math.fabs(e3))-1]
+
+        print(a1)
+        print(a2)
+        print(a3)
+
+        if (a1 or a2 or a3):
+            pass
+        else:
+            print("LA WEA ES FALSA")
+            return ("LA WEA ES FALSA")
 def main():
     nombres()
     leerTexto()
-
+    print(comparaList())
 main()
