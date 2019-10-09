@@ -20,42 +20,35 @@ def leerTexto():
         else:
             values.append(line.splitlines())
 
-
+    print("Index: ")
     for x in range(len(index)):
         print(index[x])
-    print("sobrante:")
-    for y in range(len(values)):
-        print(values[y])
     values.pop(0)
     values.pop(0)
 
-    print("solo sobra: "+ str (values))
+    print("Values: "+ str (values))
     values = values[0]
     values[0] = int(values[0])
 
-    ##print(values)
+
     var = values[0]
 
-    ##print(var)
+
     for i in range (0, len(str(var))):
-        ##print(str(var)[i])
+
         p = str(var)[i]
 
         if (p == "0"):
             values2.append(False)
         elif (p == "1"):
             values2.append(True)
-    print(index)
-    print(values2)
-
     return values
     return index
-
-
 
 def comparaList():
     for i in range (0, len(index)):
         arr = (str(index[i][0]).split())
+        print("Computing....")
         print(arr)
 
         e1 = int(arr[0])
@@ -77,21 +70,12 @@ def comparaList():
         else:
             a3 = values2[int(math.fabs(e3))-1]
 
-        print(a1)
-        print(a2)
-        print(a3)
-
         if (a1 or a2 or a3):
             pass
         else:
-            print("LA WEA ES FALSA")
-            return ("LA WEA ES FALSA")
+            return ("P = 0")
 def main():
     nombres()
     leerTexto()
     print(comparaList())
 main()
-
-
-
-
