@@ -25,7 +25,7 @@ def leerTexto():
         print(index[x])
     values.pop(0)
     values.pop(0)
-
+    print("=======================================")
     print("Values: "+ str (values))
     values = values[0]
     values[0] = int(values[0])
@@ -48,6 +48,7 @@ def leerTexto():
 def comparaList():
     for i in range (0, len(index)):
         arr = (str(index[i][0]).split())
+        print("============================================")
         print("Computing....")
         print(arr)
 
@@ -73,7 +74,7 @@ def comparaList():
         if (a1 or a2 or a3):
             pass
         else:
-            return ("P = 0")
+            return ("Result:\nP = 0")
 def main():
     nombres()
     leerTexto()
