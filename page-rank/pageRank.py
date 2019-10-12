@@ -13,8 +13,8 @@ def limpiar():
 
     for elem in numset:
         for char in elem:
-            if char == '(':
-                char.split("(")
+            if char == "(":
+                elem.split()
     print(numset)
 
 def main():
