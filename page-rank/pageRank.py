@@ -6,12 +6,20 @@ def nombres():
     print("Oscar Zuniga Lara            A01654827")
 
 def limpiar():
-    numset=[]
+    numset=[[]]
     for list in file:
         for char in list:
             if char.isdigit():
-                numset.append(char)
+                numset[char].append(char)
+        #for char in list:
+         #   if char.isdigit():
+        #numset.append(list)
+    #for set in numset:
+        #for char in set:
+            #if char ==
     print(numset)
+
+
 
 def main():
     nombres()
