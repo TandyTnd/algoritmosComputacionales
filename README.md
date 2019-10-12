@@ -1,7 +1,4 @@
 # algoritmosComputacionales
-#___________.__               ________                       
-#\__    ___/|  |__   ____    /  _____/_____    _____   ____  
-#  |    |   |  |  \_/ __ \  /   \  ___\__  \  /     \_/ __ \ 
-#  |    |   |   Y  \  ___/  \    \_\  \/ __ \|  Y Y  \  ___/ 
-#  |____|   |___|  /\___  >  \______  (____  /__|_|  /\___  >
-#                \/     \/          \/     \/      \/     \/
+
+Documentation for graph
+https://networkx.github.io/documentation/stable/tutorial.html
