@@ -8,13 +8,9 @@ def nombres():
 def limpiar():
     numset=[]
     for list in file:
-        numset.append(list)
-    print(numset)
-
-    for elem in numset:
-        for char in elem:
-            if char == "(":
-                elem.split()
+        for char in list:
+            if char.isdigit():
+                numset.append(char)
     print(numset)
 
 def main():
