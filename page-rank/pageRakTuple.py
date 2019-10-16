@@ -28,22 +28,20 @@ def leerTexto():
     values.pop(0)
     print("=======================================")
     print("Values: "+ str (values))
-    values = values[0]
-    values[0] = int(values[0])
+
+    #values = values[0]
+    #values[0] = int(values[0])
 
 
-    var = values[0]
+    for i in range (0, len(values)):
+        a = (values[i][0])
+        i1 = int (a[1])
+        i2 = int (a[3])
+        print(i1)
+        print(i2)
+        values2.append([i1, i2])
+    print(values2)
 
-
-    for i in range (0, len(str(var))):
-
-        p = str(var)[i]
-
-        if (p == "0"):
-            values2.append(False)
-        elif (p == "1"):
-            values2.append(True)
-    return values
 
 def main():
     nombres()
