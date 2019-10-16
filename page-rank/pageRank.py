@@ -1,6 +1,12 @@
 import networkx as nx
 file = open("graph.txt", 'r')
 
+
+keyNum = " 0"
+index = []
+values2 = []
+
+
 def nombres():
     print("Alejandro Perez Gonzalez     A01746643")
     print("Oscar Zuniga Lara            A01654827")
