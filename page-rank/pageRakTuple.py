@@ -29,21 +29,20 @@ def leerTexto():
     print("=======================================")
     print("Values: "+ str (values))
 
-    #values = values[0]
-    #values[0] = int(values[0])
-
-
     for i in range (0, len(values)):
         a = (values[i][0])
         i1 = int (a[1])
         i2 = int (a[3])
-        print(i1)
-        print(i2)
         values2.append([i1, i2])
     print(values2)
 
 
+def PAGERANK():
+    for i in range(0, len(values2)):
+        print(values2[i])
+
 def main():
     nombres()
     leerTexto()
+    PAGERANK()
 main()
