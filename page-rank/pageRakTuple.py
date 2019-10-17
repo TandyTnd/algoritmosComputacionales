@@ -1,4 +1,5 @@
 import networkx as nx
+import matplotlib.pyplot as plt
 
 keyNum = " 0"
 index = []
@@ -38,8 +39,24 @@ def leerTexto():
 
 
 def PAGERANK():
+    G = nx.Graph()
+
+    listNodes = []
+
     for i in range(0, len(values2)):
-        print(values2[i])
+        a1, a2 = values2[i][0], values2[i][1]
+        #print(a1, a2)
+        if not (a1 in listNodes ):
+            listNodes.append(a1)
+            G.add_node(a1)
+
+    for i in range(0, len(values2)):
+        a1, a2 = values2[i][0], values2[i][1]
+        G.add_edge(a1, a2)
+
+    print(listNodes)
+    print(G)
+    G.graph
 
 def main():
     nombres()
