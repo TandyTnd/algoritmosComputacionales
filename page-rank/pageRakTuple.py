@@ -55,8 +55,9 @@ def PAGERANK():
         G.add_edge(a1, a2)
 
     print(listNodes)
-    print(G)
-    G.graph
+
+    nx.draw(G, with_labels=True)
+    plt.show()
 
 def main():
     nombres()
