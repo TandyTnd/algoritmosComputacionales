@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-
+G = nx.DiGraph()
 keyNum = " 0"
 index = []
 values2 = []
@@ -22,27 +22,20 @@ def leerTexto():
         else:
             values.append(line.splitlines())
 
-    print("Index: ")
+    print("indice: " +str(index))
+    print("values: "+str(values))
+
     for x in range(len(index)):
         print(index[x])
-    values.pop(0)
-    values.pop(0)
-    print("=======================================")
-    print("Values: "+ str (values))
 
+    print("=======================================")
     for i in range (0, len(values)):
         a = (values[i][0])
         i1 = int (a[1])
         i2 = int (a[3])
         values2.append([i1, i2])
-    print(values2)
-
-
-def PAGERANK():
-    G = nx.Graph()
-
+def crearGrafo():
     listNodes = []
-
     for i in range(0, len(values2)):
         a1, a2 = values2[i][0], values2[i][1]
         #print(a1, a2)
@@ -54,13 +47,29 @@ def PAGERANK():
         a1, a2 = values2[i][0], values2[i][1]
         G.add_edge(a1, a2)
 
+    print("Nodos del grafo:")
     print(listNodes)
+    print("Vecinos de nodo 1: " + str(G[1]))
+    print("Vecinos de nodo 2: " + str(G[2]))
+    print("Vecinos de nodo 3: " + str(G[3]))
+    print("Vecinos de nodo 4: " + str(G[4]))
+    print("Vecinos de nodo 5: " + str(G[5]))
+    print("Vecinos de nodo 6: " + str(G[6]))
+    print("Vecinos de nodo 7: " + str(G[7]))
+    print("Vecinos de nodo 8: " + str(G[8]))
+    print("Vecinos de nodo 9: " + str(G[9]))
 
     nx.draw(G, with_labels=True)
     plt.show()
 
+
+#def pageRank():
+
+
+
 def main():
     nombres()
     leerTexto()
-    PAGERANK()
+    crearGrafo()
+    #pageRank()
 main()
