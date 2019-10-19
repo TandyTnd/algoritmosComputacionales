@@ -4,7 +4,7 @@ G = nx.DiGraph()
 keyNum = " 0"
 index = []
 values2 = []
-
+PR = {}
 
 file = open("graph.txt", 'r')
 
@@ -59,11 +59,18 @@ def crearGrafo():
     print("Vecinos de nodo 8: " + str(G[8]))
     print("Vecinos de nodo 9: " + str(G[9]))
 
+    pageRank()
+
+
     nx.draw(G, with_labels=True)
     plt.show()
+    
 
 
-#def pageRank():
+def pageRank():
+    print ("PAGERANK")
+    print (nx.pagerank(G))
+
 
 
 
@@ -71,5 +78,4 @@ def main():
     nombres()
     leerTexto()
     crearGrafo()
-    #pageRank()
 main()
