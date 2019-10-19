@@ -79,7 +79,7 @@ def pageRank():
     for place in rank:
         print(str(num)+"  "+str(place))
         num +=1
-  
+
 
 
     nx.draw(G, with_labels=True)
