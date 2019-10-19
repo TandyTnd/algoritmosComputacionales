@@ -14,7 +14,7 @@ def nombres():
 
 def leerTexto():
     values=[]
-    print("Leyendo....")
+    print("Reading....")
     for line in file:
         if keyNum in line:
             index.append(line.splitlines())
@@ -22,8 +22,7 @@ def leerTexto():
         else:
             values.append(line.splitlines())
 
-    print("indice: " +str(index))
-    print("values: "+str(values))
+
 
     for x in range(len(index)):
         print(index[x])
@@ -47,23 +46,46 @@ def crearGrafo():
         a1, a2 = values2[i][0], values2[i][1]
         G.add_edge(a1, a2)
 
-    print("Nodos del grafo:")
+    print("Graph nodes:")
     print(listNodes)
-    print("Vecinos de nodo 1: " + str(G[1]))
-    print("Vecinos de nodo 2: " + str(G[2]))
-    print("Vecinos de nodo 3: " + str(G[3]))
-    print("Vecinos de nodo 4: " + str(G[4]))
-    print("Vecinos de nodo 5: " + str(G[5]))
-    print("Vecinos de nodo 6: " + str(G[6]))
-    print("Vecinos de nodo 7: " + str(G[7]))
-    print("Vecinos de nodo 8: " + str(G[8]))
-    print("Vecinos de nodo 9: " + str(G[9]))
+    print("Node 1 succesors: " + str(G[1]))
+    print("Node 2 succesors: " + str(G[2]))
+    print("Node 3 succesors: " + str(G[3]))
+    print("Node 4 succesors: " + str(G[4]))
+    print("Node 5 succesors: " + str(G[5]))
+    print("Node 6 succesors: " + str(G[6]))
+    print("Node 7 succesors: " + str(G[7]))
+    print("Node 8 succesors: " + str(G[8]))
+    print("Node 9 succesors: " + str(G[9]))
+
+
+
+
+def pageRank():
+    rank=[]
+    pr = nx.pagerank(G)
+    print(pr)
+    for x in range(len(pr)+1):
+        rank.append(pr.get(x))
+    rank.pop(0)
+    print("======")
+    print(rank)
+    for i in range(len(rank)):
+        for j in range(0,len(rank)-i-1):
+            if rank[j]>rank[j+1]:
+                rank[j],rank[j+1] = rank[j+1],rank[j]
+    num = 1
+
+    for place in rank:
+        print(str(num)+"  "+str(place))
+        num +=1
+  
+
 
     nx.draw(G, with_labels=True)
     plt.show()
 
 
-#def pageRank():
 
 
 
@@ -71,5 +93,5 @@ def main():
     nombres()
     leerTexto()
     crearGrafo()
-    #pageRank()
+    pageRank()
 main()
