@@ -81,6 +81,8 @@ def comparaList():
 
 def generateRandomNumbers(largo):
     print("GENERATE RANDOM NUMBERS")
+    r = randomdotorg.RandomDotOrg()
+
     print(randomwrapy.rnumlistwithoutreplacement(0,10))
 
     leerTexto()
