@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: randomdotorg
+Version: 0.1.3a3
+Summary: random.org number generator interface module
+Home-page: http://code.google.com/p/randomdotorg/
+Author: Clovis Fabricio
+Author-email: nosklo at gmail dot com
+License: UNKNOWN
+Download-URL: http://code.google.com/p/randomdotorg/downloads/list
+Description: randomdotorg.py is a python module to implement python's random number interface
+        by fetching data from random.org, which is is a true random number service
+        that generates randomness via atmospheric noise.
+        
+        Example of use:
+        
+        >>> r = randomdotorg.RandomDotOrg()
+        >>> r.get_quota() # method to get allowed bit quota for this ip
+        999171
+        >>> print r.randrange(2, 33, 3)
+        14
+        
+        Methods supported by the standard library random module are supported, except
+        for save/load state and seeding which won't make sense for a true random number
+        generator.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Utilities

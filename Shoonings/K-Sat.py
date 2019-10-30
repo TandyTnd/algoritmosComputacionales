@@ -1,4 +1,6 @@
 import math
+import randomwrapy
+
 
 keyNum = " 0"
 index = []
@@ -45,6 +47,7 @@ def leerTexto():
     return values
     return index
 
+
 def comparaList():
     for i in range (0, len(index)):
         arr = (str(index[i][0]).split())
@@ -75,7 +78,12 @@ def comparaList():
             pass
         else:
             return ("Result:\nP = 0")
-if __name__ == '__main__':
-    nombres()
+
+def generateRandomNumbers(largo):
+    print("GENERATE RANDOM NUMBERS")
+    print(randomwrapy.rnumlistwithoutreplacement(0,10))
+
     leerTexto()
-    print(comparaList())
+    randomwrapy
+if __name__ == '__main__':
+    generateRandomNumbers(10)
