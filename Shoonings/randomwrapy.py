@@ -133,5 +133,6 @@ def reportquota():
     request.add_header('User-Agent', 'randomwrapy/0.1 very alpha')
     opener = urllib2.build_opener()
     quota = opener.open(request).read()
-    print("This IP address has", quota, "bits left. Visit http://www.random.org/quota for more information.")
+    print
+    "This IP address has", quota, "bits left. Visit http://www.random.org/quota for more information."
 

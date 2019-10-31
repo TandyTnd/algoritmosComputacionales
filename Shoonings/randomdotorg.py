@@ -33,7 +33,7 @@ __license__ = "GPL-3"
 
 import random
 import urllib
-import urllib2
+import urllib.request as  u
 
 
 import threading         # Global lock to prevent threading
