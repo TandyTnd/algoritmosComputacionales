@@ -3,64 +3,38 @@ import random
 
 keyNum = " 0"
 index = []
+values = []
+file = open("texto.txt", "r")
+arr = []
 values2 = []
 
-nonTrueSets = []
-
-file = open("texto.txt", "r")
-
-
+numSET = 0
 def nombres():
     print("Alejandro Perez Gonzalez     A01746643")
     print("Oscar Zuniga Lara            A01654827")
 
-
 def leerTexto():
-    values = []
     print("Leyendo....")
     for line in file:
         if keyNum in line:
             index.append(line.splitlines())
-
-        else:
-            values.append(line.splitlines())
-
-    print("Index: ")
-    for x in range(len(index)):
-        print(index[x])
-    values.pop(0)
-    values.pop(0)
-    print("=======================================")
-    # print("Values: "+ str (values))
-    values = values[0]
-    values[0] = int(values[0])
-
-    values = randomSolution(len(str(values[0])))
-    print("VALUES" + str(values))
-    var = values
-
-    for i in range(0, len(str(var))):
-
-        p = str(var)[i]
-
-        if (p == "0"):
-            values2.append(False)
-        elif (p == "1"):
-            values2.append(True)
-    # print(values)
-
-    return values
+    #print("Index: ")
+    #print(index)
     return index
 
+def comparaList(values2):
 
-def comparaList():
-    print("AAAAA" + str(values2))
+
+
+    print("COMPARANDO")
+    print(values2)
+    nonTrueSets1 = []
     for i in range(0, len(index)):
-        # print(i)
+        #print(i)
         arr = (str(index[i][0]).split())
         # print("============================================")
-        # print("Computing....")
-        # print(arr)
+        #print("Computing....")
+        #print(arr)
         e1 = int(arr[0])
         e2 = int(arr[1])
         e3 = int(arr[2])
@@ -82,13 +56,11 @@ def comparaList():
             # print("VAL DE SET = TRUE")
             pass
         else:
-            # print("VAL DE SET = FALSE")
-            nonTrueSets.append(i)
-    print(values2)
-    print("VALORES NO CUMPLIDOS")
-    print(nonTrueSets)
-
-
+            #print("VAL DE SET = FALSE   " + str(i))
+            nonTrueSets1.append(i)
+    nonTrueSets = nonTrueSets1
+    print("VALORES NO CUMPLIDOS" + str(nonTrueSets))
+    return nonTrueSets
 def randomSolution(largo):
     randomSolution = []
 
@@ -97,30 +69,62 @@ def randomSolution(largo):
         randomSolution.append(randomNumber)
     return randomSolution
 
+def values2Generator():
+    print("NEW SET #####################")
+    values = randomSolution((20))
+    values2 = []
+    print("VALUES" + str(values))
+    var = values
+    for i in range(0, len(str(var))):
+        p = str(var)[i]
+        if (p == "0"):
+            values2.append(False)
+        elif (p == "1"):
+            values2.append(True)
+
+    return values2
+
+def intenta(nonTrueSets):
+    while (len(nonTrueSets) > 0):
+        values2 = values2Generator()
+        comparaList(values2)
+        for i in range(0, 3):
+            print("CAMBIA  VEZ" + str(i))
+            if (nonTrueSets==0):
+                print("RESUELTO")
+                break
+            else:
+                noc = len(nonTrueSets)
+                print("NON TRUE SETS:   " + str(noc))
+                setAcambiar = random.randint(0, noc )
+                print("SET A CAMBIAR    " + str(setAcambiar))
+                valACambiardeSET = random.randint(0, 2)
+
+                valACambiarList = ((index[setAcambiar][0]).split())
+
+
+                valACambiar = int(valACambiarList[valACambiardeSET])
+                valACambiar = abs(valACambiar)
+
+                print(valACambiarList)
+                print(valACambiar)
+
+                valFinal = values2[valACambiar-1]
+
+                values2[(valACambiar)-1] = not valFinal
+                nonTrueSets = comparaList(values2)
+
+
+    print("SOLUCION")
+    print(values2)
+    print(nonTrueSets)
+
 
 if __name__ == '__main__':
     nombres()
     leerTexto()
-    comparaList()
+    nonTrueSets = comparaList(values2Generator())
+    intenta(nonTrueSets)
 
-    if (len(nonTrueSets) > 0):
-        for i in range(0, 4):
-            if (len((nonTrueSets)) == 0):
-                print("ENCONTRADO")
-                break
-            else:
-                print("CAMBIA   " + str(i))
-                noc = len(nonTrueSets)
-                print("NON TRUE SETS:   " + str(noc))
-                setAcambiar = random.randint(0, noc + 1)
-                print("SET A CAMBIAR    " + str(setAcambiar))
-                arr = (str(index[setAcambiar][0]).split())
 
-                valACambiar1 = random.randint(0, 3)
-                valACambiar = int(arr[valACambiar1])
-                print(valACambiar)
-                print(arr)
-
-                values2[abs(setAcambiar)] = not (values2[setAcambiar])
-                comparaList()
     # print(randomSolution(21))
