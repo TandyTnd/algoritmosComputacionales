@@ -85,7 +85,7 @@ def values2Generator():
     return values2
 
 def intenta(nonTrueSets):
-    while (len(nonTrueSets) > 0):
+    if (len(nonTrueSets) > 0):
         values2 = values2Generator()
         comparaList(values2)
         for i in range(0, 3):
@@ -107,7 +107,7 @@ def intenta(nonTrueSets):
                 valACambiar = abs(valACambiar)
 
                 print(valACambiarList)
-                print(valACambiar)
+                print("valor a cambiar: " + str(valACambiar))
 
                 valFinal = values2[valACambiar-1]
 
@@ -115,8 +115,8 @@ def intenta(nonTrueSets):
                 nonTrueSets = comparaList(values2)
 
 
-    print("SOLUCION")
     print(values2)
+    print("SETS NO SATISFECHOS:")
     print(nonTrueSets)
 
 
