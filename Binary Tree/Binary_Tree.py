@@ -1,4 +1,5 @@
 import networkx as nx
+import matplotlib.pyplot as plt
 setNumbers=[]
 
 def nombres():
@@ -18,13 +19,44 @@ def createList():
 
         else:
             setNumbers.append(number)
-            c +=1
+            c += 1
 
     print("List: "+ str(setNumbers))
     return setNumbers
+def tree():
+    t = nx.Graph()
+    t.add_node(setNumbers[0])
+    plt.title("Binary tree")
+    nx.draw_networkx(t)
+
+    plt.show()
+
+def extree():
+    G = nx.Graph()
+
+    G.add_node("ROOT")
+
+    for i in range(5):
+        G.add_node("Child_%i" % i)
+        G.add_node("Grandchild_%i" % i)
+        G.add_node("Greatgrandchild_%i" % i)
+
+        G.add_edge("ROOT", "Child_%i" % i)
+        G.add_edge("Child_%i" % i, "Grandchild_%i" % i)
+        G.add_edge("Grandchild_%i" % i, "Greatgrandchild_%i" % i)
+
+    plt.title("draw_networkx")
+    nx.draw_networkx(G)
+
+    plt.show()
 
 
 def main():
     nombres()
+    print("/////////////////////")
     createList()
+    print("###############################")
+    tree()
+    print("################################")
+    extree()
 main()
