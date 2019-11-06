@@ -1,6 +1,13 @@
-import networkx as nx
-import matplotlib.pyplot as plt
+
 setNumbers=[]
+
+
+class Node:
+    def __init__(self,key):
+        self.left = None
+        self.right = None
+        self.val = int(key)
+
 
 def nombres():
     print("Alejandro Perez Gonzalez     A01746643")
@@ -23,32 +30,33 @@ def createList():
 
     print("List: "+ str(setNumbers))
     return setNumbers
-def tree():
-    t = nx.Graph()
-    t.add_node(setNumbers[0])
-    plt.title("Binary tree")
-    nx.draw_networkx(t)
 
-    plt.show()
+def insert(root,node):
+    if root is None:
+        root = node
+    else:
+        if root.val < node.val:
+            if root.right is None:
+                root.right = node
+            else:
+                insert(root.right, node)
+        else:
+            if root.left is None:
+                root.left = node
+            else:
+                insert(root.left, node)
 
-def extree():
-    G = nx.Graph()
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.val)
+        inorder(root.right)
 
-    G.add_node("ROOT")
-
-    for i in range(5):
-        G.add_node("Child_%i" % i)
-        G.add_node("Grandchild_%i" % i)
-        G.add_node("Greatgrandchild_%i" % i)
-
-        G.add_edge("ROOT", "Child_%i" % i)
-        G.add_edge("Child_%i" % i, "Grandchild_%i" % i)
-        G.add_edge("Grandchild_%i" % i, "Greatgrandchild_%i" % i)
-
-    plt.title("draw_networkx")
-    nx.draw_networkx(G)
-
-    plt.show()
+def addNodes():
+    r = Node(setNumbers[0])
+    for number in range(1,len(setNumbers)):
+        insert(r, Node(setNumbers[number]))
+    inorder(r)
 
 
 def main():
@@ -56,7 +64,7 @@ def main():
     print("/////////////////////")
     createList()
     print("###############################")
-    tree()
-    print("################################")
-    extree()
+    print("Sorted: ")
+    addNodes()
+
 main()
