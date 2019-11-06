@@ -1,12 +1,14 @@
-
+import networkx as nx
+import matplotlib.pyplot as plt
+G = nx.Graph()
 setNumbers=[]
 
 
 class Node:
-    def __init__(self,key):
-        self.left = None
-        self.right = None
-        self.val = int(key)
+    def __init__(int,key):
+        int.left = None
+        int.right = None
+        int.val = key
 
 
 def nombres():
@@ -34,29 +36,51 @@ def createList():
 def insert(root,node):
     if root is None:
         root = node
+
     else:
         if root.val < node.val:
             if root.right is None:
                 root.right = node
+
+
             else:
                 insert(root.right, node)
+
         else:
             if root.left is None:
                 root.left = node
+
+
             else:
                 insert(root.left, node)
+
 
 def inorder(root):
     if root:
         inorder(root.left)
+
         print(root.val)
         inorder(root.right)
 
 def addNodes():
-    r = Node(setNumbers[0])
+    root = setNumbers[0]
+    r = Node(root)
+    G.add_node(root)
+
+
     for number in range(1,len(setNumbers)):
+        G.add_node(setNumbers[number])
         insert(r, Node(setNumbers[number]))
+
     inorder(r)
+
+    plt.title("BINARY TREE")
+    nx.draw(G, with_labels=True)
+    plt.show()
+
+
+
+
 
 
 def main():
@@ -64,7 +88,10 @@ def main():
     print("/////////////////////")
     createList()
     print("###############################")
+    print("ROOT: " + str(setNumbers[0]))
     print("Sorted: ")
     addNodes()
 
 main()
+
+

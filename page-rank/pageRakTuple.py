@@ -33,6 +33,7 @@ def leerTexto():
         i1 = int (a[1])
         i2 = int (a[3])
         values2.append([i1, i2])
+
 def crearGrafo():
     listNodes = []
     for i in range(0, len(values2)):
