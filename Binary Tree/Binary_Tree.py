@@ -83,7 +83,8 @@ def addNodes():
 
 
 
-def main():
+if __name__ == '__main__':
+
     nombres()
     print("/////////////////////")
     createList()
@@ -92,6 +93,5 @@ def main():
     print("Sorted: ")
     addNodes()
 
-main()
 
 
