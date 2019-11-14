@@ -6,7 +6,7 @@ index = []
 values2 = []
 
 
-file = open("graph.txt", 'r')
+file = open("BFS/graph.txt", 'r')
 
 def nombres():
     print("Alejandro Perez Gonzalez     A01746643")
@@ -61,6 +61,15 @@ def crearGrafo():
 
 
 
+def bfsFUNC():
+    print("BFS TRAVEL")
+
+    print(list(nx.bfs_edges(G, 1)))
+
+    nx.draw(G, with_labels=True)
+    plt.show()
+
+
 
 def pageRank():
     rank=[]
@@ -95,4 +104,4 @@ if __name__ == '__main__':
     nombres()
     leerTexto()
     crearGrafo()
-    pageRank()
+    bfsFUNC()
