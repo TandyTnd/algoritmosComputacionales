@@ -6,7 +6,7 @@ index = []
 values2 = []
 
 
-file = open("BFS/graph.txt", 'r')
+file = open("graph.txt", 'r')
 
 def nombres():
     print("Alejandro Perez Gonzalez     A01746643")
