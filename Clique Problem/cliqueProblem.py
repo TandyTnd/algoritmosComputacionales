@@ -1,6 +1,7 @@
+from random import choice
 import networkx as nx
 import matplotlib.pyplot as plt
-G = nx.DiGraph()
+G = nx.Graph()
 keyNum = " 0"
 index = []
 values2 = []
@@ -21,8 +22,6 @@ def leerTexto():
 
         else:
             values.append(line.splitlines())
-
-
 
     for x in range(len(index)):
         print(index[x])
@@ -60,7 +59,6 @@ def crearGrafo():
     print("Node 9 succesors: " + str(G[9]))
 
 
-
 def bfsFUNC():
     print("BFS TRAVEL")
 
@@ -68,7 +66,6 @@ def bfsFUNC():
 
     nx.draw(G, with_labels=True)
     plt.show()
-
 
 
 def pageRank():
@@ -90,12 +87,53 @@ def pageRank():
         print(str(num)+"  "+str(place))
         num +=1
 
-
-
     nx.draw(G, with_labels=True)
     plt.show()
 
+def getRandomNode():
+    random_node = choice(list(G.nodes))
+    return random_node
 
+def testClique(clique,ooo):
+    ccc = list.copy(clique)
+    ccc.append(ooo)
+    for x in (ccc):
+       for y in ccc:
+           if (y in G.neighbors(x)):
+               pass
+           else:
+               if (y == x):
+                   pass
+               else:
+                   return False
+
+    return True
+
+
+def cliqueProblem(x):
+    #print("CLIQUE PROBLEM SOLUTION")
+    cliqueToTest = []
+    cliqueToTest.append(x)
+
+    for x in G.neighbors(x):
+        if testClique(cliqueToTest,x):
+            cliqueToTest.append(x)
+    cliqueToTest.sort()
+    #print(cliqueToTest)
+    return cliqueToTest
+
+def cliqueProblem1():
+    MaxCliques = []
+    for x in G.nodes:
+        clique = cliqueProblem(x)
+        if (clique in MaxCliques):
+            pass
+        else:
+            MaxCliques.append(clique)
+    print("///////////////////////////////////////////////////////")
+    print(MaxCliques)
+    nx.draw(G, with_labels=True)
+    plt.show()
 
 
 
@@ -104,4 +142,4 @@ if __name__ == '__main__':
     nombres()
     leerTexto()
     crearGrafo()
-    bfsFUNC()
+    cliqueProblem1()
